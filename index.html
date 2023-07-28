@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUOTES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="navbar">
+        <ol id="nav">
+            <li class="navitems" id="gq">Great Quotes</li>
+            <!-- <li class="navitems" id="aq">All Quotes</li> -->
+            <!-- <li class="navitems" id="nq">New Quotes</li> -->
+            <li class="navitems" id="aq" onclick="showAllQuotes()">All Quotes</li>
+            <li class="navitems" id="nq" onclick="goToFormPage()">New Quotes</li>
+        </ol>
+    </div>
+    <h1>ALL Quotes</h1>
+    <div class="box">
+        <h2 class="h22">MY NAME IS SAMARTH VOHRA</h2>
+        <h4 class="h24">~Samarth Vohra</h4>
+        <button class="btn">View Full Quote</button>
+    </div>
+    <div class="box">
+        <h2 class="h22">MY NAME IS KASHISH VOHRA</h2>
+        <h4 class="h24">~Kashish Vohra</h4>
+        <button class="btn">View Full Quote</button>
+    </div>
+    <div class="box">
+        <h2 class="h22">MY NAME IS RUPESH KUMAR</h2>
+        <h4 class="h24">~Rupesh Kumar</h4>
+        <button class="btn">View Full Quote</button>
+    </div>
+    <div class="box">
+        <h2 class="h22">MY NAME IS ZEESHAN ADEEN</h2>
+        <h4 class="h24">~Zeeshan Adeen</h4>
+        <button class="btn">View Full Quote</button>
+    </div>
+    <div class="box">
+        <h2 class="h22">BOHOT BADA AADMI BAN GYA HU</h2>
+        <h4 class="h24">~sam</h4>
+        <button class="btn">View Full Quote</button>
+    </div>
+    <div class="box">
+        <h2 class="h22">SAMARTH IS THE BEST MENTOR</h2>
+        <h4 class="h24">~coding blocks</h4>
+        <button class="btn">View Full Quote</button>
+    </div>
+    <script>
+        function goToFormPage() {
+            window.location.href = "form.html";
+        }
+
+        // Function to display the saved quote on index.html
+        function displaySavedQuote() {
+            // Retrieve the saved author and quote from localStorage
+            var savedAuthor = localStorage.getItem("savedAuthor");
+            var savedQuote = localStorage.getItem("savedQuote");
+
+            // Check if there is any saved data
+            if (savedAuthor && savedQuote) {
+                // Create a new div element to display the saved quote
+                var quoteDiv = document.createElement("div");
+                quoteDiv.className = "box"; // Use the existing "box" CSS class
+
+                var quoteHeading = document.createElement("h2");
+                quoteHeading.className = "h22";
+                quoteHeading.textContent = savedQuote;
+                var authorHeading = document.createElement("h4");
+                authorHeading.className = "h24";
+                authorHeading.textContent = "~" + savedAuthor;
+
+                quoteDiv.appendChild(quoteHeading);
+                quoteDiv.appendChild(authorHeading);
+
+                // Append the quoteDiv to the savedQuoteBox div
+                var savedQuoteBox = document.getElementById("savedQuoteBox");
+                savedQuoteBox.appendChild(quoteDiv);
+            }
+        }
+
+        // Call the function to display the saved quote on page load
+        document.addEventListener("DOMContentLoaded", displaySavedQuote);
+        function showAllQuotes() {
+            // Retrieve all the quote divs with class "box"
+            var allQuoteDivs = document.querySelectorAll(".box");
+
+            // Retrieve the saved quote data from localStorage
+            var savedQuoteData = JSON.parse(localStorage.getItem("savedQuoteData"));
+
+            // Create an array to hold all the quotes
+            var allQuotes = [];
+
+            // Add existing quotes to the array
+            for (var i = 0; i < allQuoteDivs.length; i++) {
+                var quote = allQuoteDivs[i].querySelector(".h22").textContent;
+                var author = allQuoteDivs[i].querySelector(".h24").textContent.slice(1); // Remove the "~" from the author
+                allQuotes.push({ author: author, quote: quote });
+            }
+
+            // Add the form entry to the array if available
+            if (savedQuoteData && savedQuoteData.author && savedQuoteData.quote) {
+                allQuotes.push({ author: savedQuoteData.author, quote: savedQuoteData.quote });
+            }
+            // Save the quotes data in local storage to access it on the "all_quotes.html" page
+            localStorage.setItem("allQuotesData", JSON.stringify(allQuotes));
+
+            // Redirect to the "all_quotes.html" page
+            window.location.href = "all_quotes.html";
+        }
+    </script>
+</body>
+</html>

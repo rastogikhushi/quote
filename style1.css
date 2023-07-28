@@ -1,0 +1,109 @@
+/* <>For the form.html page */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        #navbar {
+            display: inline-block;
+            background-color: rgb(14, 85, 14);
+            z-index: 2;
+            position: sticky;
+            top: 0;
+            color: white;
+            height: 70px;
+            width: 100%;
+        }
+        
+        div>ol {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            position: relative;
+        }
+        
+        div>ol>li {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+        .navitems {
+            margin: 5px 5px;
+            color: white;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+        /* For the quote form in form.html */
+        .quote-form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid rgb(14, 85, 14);
+            border-radius: 10px;
+        }
+        
+        .quote-form h1 {
+            text-align: center;
+        }
+        
+        .quote-form label,
+        .quote-form input,
+        .quote-form textarea,
+        .quote-form button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .quote-form button {
+            background-color: rgb(14, 85, 14);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        /* For the saved quote div */
+        .saved-quote {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid blue;
+            border-radius: 10px;
+            background-color: blue;
+            color: white;
+        }
+        
+        .saved-quote h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .saved-quote p {
+            margin-bottom: 20px;
+            white-space: pre-line;
+        }
+        
+        .saved-quote button {
+            background-color: rgb(14, 85, 14);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @media screen and (max-width: 768px) {
+            .quote-form {
+                max-width: 400px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .quote-form {
+                max-width: 300px;
+            }
+        }
+        

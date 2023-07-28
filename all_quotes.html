@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Quotes</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div id="navbar">
+        <ol id="nav">
+            <!-- <li class="navitems" onclick="goToQuotesPage()">Quotes</li> -->
+        </ol>
+    </div>
+    <h1>All Quotes</h1>
+    <div id="allQuotesContainer">
+        <!-- JavaScript code will populate this div with all the quotes -->
+    </div>
+
+    <script>
+        function goToQuotesPage() {
+            window.location.href = "index.html";
+        }
+
+        function fetchSavedQuotes() {
+            function goToQuotesPage() {
+            window.location.href = "index.html";
+        }
+
+        function fetchSavedQuotes() {
+            // Retrieve saved quotes from localStorage for form.html
+            var formSavedQuotes = JSON.parse(localStorage.getItem("formSavedQuotes")) || [];
+
+            // Retrieve saved quotes from localStorage for index.html
+            var indexSavedQuotes = JSON.parse(localStorage.getItem("indexSavedQuotes")) || [];
+
+            // Combine both sets of quotes
+            var allSavedQuotes = formSavedQuotes.concat(indexSavedQuotes);
+
+            // Get the container div where all the quotes will be displayed
+            var allQuotesContainer = document.getElementById("allQuotesContainer");
+
+            // Clear the container to remove any existing quotes
+            allQuotesContainer.innerHTML = "";
+
+            // Loop through all the saved quotes and display them
+            for (var i = 0; i < allSavedQuotes.length; i++) {
+                var quoteData = allSavedQuotes[i];
+
+                // Create a new div element to display the saved quote
+                var quoteDiv = document.createElement("div");
+                quoteDiv.className = "box"; // Use the existing "box" CSS class
+
+                var quoteHeading = document.createElement("h2");
+                quoteHeading.className = "h22";
+                quoteHeading.textContent = quoteData.quote;
+                var authorHeading = document.createElement("h4");
+                authorHeading.className = "h24";
+                authorHeading.textContent = "~" + quoteData.author;
+
+                quoteDiv.appendChild(quoteHeading);
+                quoteDiv.appendChild(authorHeading);
+
+                // Append the quoteDiv to the allQuotesContainer div
+                allQuotesContainer.appendChild(quoteDiv);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", fetchSavedQuotes);
+            // Retrieve all the saved quotes from localStorage
+            var allSavedQuotes = JSON.parse(localStorage.getItem("allSavedQuotes")) || [];
+
+            // Loop through all the saved quotes and display them
+            var allQuotesContainer = document.getElementById("allQuotesContainer");
+            allQuotesContainer.innerHTML = ""; // Clear existing content
+
+            for (var i = 0; i < allSavedQuotes.length; i++) {
+                var quoteData = allSavedQuotes[i];
+
+                // Create a new div element to display the saved quote
+                var quoteDiv = document.createElement("div");
+                quoteDiv.className = "box"; // Use the existing "box" CSS class
+
+                var quoteHeading = document.createElement("h2");
+                quoteHeading.className = "h22";
+                quoteHeading.textContent = quoteData.quote;
+                var authorHeading = document.createElement("h4");
+                authorHeading.className = "h24";
+                authorHeading.textContent = "~" + quoteData.author;
+
+                quoteDiv.appendChild(quoteHeading);
+                quoteDiv.appendChild(authorHeading);
+
+                // Append the quoteDiv to the allQuotesContainer div
+                allQuotesContainer.appendChild(quoteDiv);
+            }
+        }
+
+        // Call the function to fetch and display the saved quotes on page load
+        document.addEventListener("DOMContentLoaded", fetchSavedQuotes);
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: rgb(233, 233, 233); /* Change the background color */
+}
+
+#navbar {
+    display: inline-block;
+    background-color: rgb(14, 85, 14);
+    z-index: 2;
+    position: sticky;
+    top: 0;
+    color: white;
+    height: 70px;
+    width: 100%;
+}
+
+navitems {
+    margin: 5px 5px;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    color: rgb(14, 85, 14); /* Change the heading color */
+}
+
+#allQuotesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box {
+    width: 700px;
+    height: 100px;
+    margin: 20px;
+    background-color: rgb(153, 228, 241);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.h22, .h24 {
+    margin: 5px;
+    text-align: center;
+}
+
+.btn {
+    font-size: 16px; /* Adjust button font size */
+    background-color: rgb(14, 85, 14);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Set the form input fields' font size and color */
+.quote-form input[type="text"],
+.quote-form textarea {
+    font-size: 16px;
+    color: rgb(14, 85, 14);
+    border: 1px solid rgb(14, 85, 14);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Set the placeholder text color for input fields */
+.quote-form input::placeholder,
+.quote-form textarea::placeholder {
+    color: rgb(14, 85, 14);
+}
+
+/* Style the saved quote div */
+.saved-quote {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+}
+
+.saved-quote h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.saved-quote p {
+    margin-bottom: 20px;
+    white-space: pre-line;
+}
+
+.saved-quote button {
+    background-color: rgb(14, 85, 14);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Adjust button font size */
+}@media screen and (max-width: 768px) {
+    .box {
+        max-width: 400px;
+    }
+
+    .btn {
+        max-width: 150px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .box {
+        max-width: 300px;
+    }
+
+    .btn {
+        max-width: 120px;
+        font-size: 12px;
+    }
+}
+
+
+

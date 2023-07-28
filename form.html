@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Quotes</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div id="navbar">
+        <ol id="nav">
+            <li class="navitems" onclick="goToQuotesPage()">Quotes</li>
+        </ol>
+    </div>
+    <div class="quote-form">
+        <h1>Enter a New Quote</h1>
+        <label for="author">Author:</label>
+        <input type="text" id="author" placeholder="Enter author's name">
+
+        <label for="quote">Quote:</label>
+        <textarea id="quote" placeholder="Enter your quote"></textarea>
+
+        <button onclick="saveQuote()">Save Data</button>
+    </div>
+    <p style="color: red;"> ***The added quote will be showed on add quote section</p>
+    <script>
+        function goToQuotesPage() {
+            window.location.href = "all_quotes.html";
+        }
+
+        function saveQuote() {
+            var author = document.getElementById("author").value;
+            var quote = document.getElementById("quote").value;
+            var quoteData = {
+                author: author,
+                quote: quote
+            };
+
+            // Retrieve the existing saved quotes from local storage (if any)
+            var allSavedQuotes = JSON.parse(localStorage.getItem("allSavedQuotes")) || [];
+
+            // Add the new quote data to the array
+            allSavedQuotes.push(quoteData);
+
+            // Save the updated quotes array in local storage
+            localStorage.setItem("allSavedQuotes", JSON.stringify(allSavedQuotes));
+
+            // Redirect back to the form page after saving
+            goToQuotesPage();
+        }
+    </script>
+</body>
+</html>
